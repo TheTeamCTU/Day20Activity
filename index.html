@@ -6,6 +6,55 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            /* MATTHEW SECTION */
+            .ss-containter{
+                position: relative;
+                width: 278px;
+                height: 400px;
+                color: black;
+                border-radius: 10px;
+                background-color: #fee600;
+                margin-top: 20px;
+            }
+        
+            .ss-slide{
+                text-align: center;
+                display: none;
+                padding: 20px;
+            }
+        
+            .ss-slide img{
+                width: 100%;
+            }	
+        
+            .ss-slide.ss-active{
+                display: block;
+            }
+        
+            .dot-container{
+                text-align: center;
+                padding: 20px;
+                width: 65px;
+            }
+        
+            .dot{
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.3s ease;
+            }
+        
+            .dot:hover{
+                background-color: #fee600;
+            }
+            </style>
+
     </head>
     <body>
         <!-- HOME PAGE -->
@@ -14,7 +63,33 @@
 
 
         <!-- SLIDE SHOW -->
-
+        <div class="ss-section">
+            <center>
+                <div class="ss-container">
+                    <div class="ss-active">
+                        <img src="resort1.jpeg">
+                    </div> <!-- Slide show active -->
+    
+                    <div class="ss-slide">
+                        <img src="resort2.jpeg">
+                    </div> <!-- Slide show slide 2 -->
+    
+                    <div class="ss-slide">
+                        <img src="resort3.jpeg">
+                    </div> <!-- Slide show slide 3 -->
+    
+                </div> <!-- Slide show container -->
+            </center>
+    
+            <center>
+                <div class="dot-container">
+                    <div class="dot" onclick="currentSlide(1)"></div>
+                    <div class="dot" onclick="currentSlide(2)"></div>
+                    <div class="dot" onclick="currentSlide(3)"></div>
+                </div>
+            </center>
+    
+        </div> <!-- Slide show section -->
 
 
         <!-- BIG BOX -->
@@ -28,4 +103,49 @@
 
         <!-- FOOTER -->
     </body>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+      let slideIndex = 1;
+      showSlides(slideIndex);
+    
+      setInterval(function(){
+        plusSlides(1);
+      }, 6000);
+    
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+    
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+    
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("slide");
+        let dots = document.getElementsByClassName("dot");
+    
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+    
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+    
+      const dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].addEventListener("click", function() {
+          currentSlide(i + 1);
+        });
+      }
+    });
+    </script>
+
 </html>
