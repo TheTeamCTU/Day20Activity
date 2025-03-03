@@ -176,6 +176,48 @@
 .copyright {
   text-align: right;
 }
+/*Evan Heyman*/
+.service-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+        .service-card {
+            border-style: solid;
+            border-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, rgb(0 102 0),  #6ca96e);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 300px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .service-card img {
+            max-width: 100%; /* Make the image responsive */
+            height: auto;    /* Maintain aspect ratio */
+            border-radius: 10px; /* Match the card's border radius */
+            margin-bottom: 10px; /* Add some spacing below the image */
+        }
+        /* add's animation to the h3 */
+        .animated-title {
+            display: inline-block; /* Prevents affecting other layout elements */
+            animation: mymove 2s infinite alternate ease-in-out;
+        }
+         /*sets a time for animation*/
+        @keyframes mymove {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        /*-------------------------------------------------*/
         </style>
 
     </head>
@@ -263,7 +305,35 @@
 
 
         <!-- 3 BOXES -->
-
+        <center>
+            <!--Card 1 -->
+            <div class="service-container">
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3 class="animated-title">Sightseeing</h3>
+                        <p>Sightseeing is more than just taking pictures. It's about immersing yourself in new cultures, discovering hidden gems, and creating memories that will last a lifetime.</p>
+                        <img src="site.jpg" alt="Sightseeing">
+                    </div>
+                </div>
+                
+                <!--Card 2 -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3 class="animated-title">Wildlife</h3>
+                        <p>Wildlife is a world of wonder waiting to be explored. From majestic elephants to playful monkeys, witness the incredible diversity of life on our planet.</p>
+                        <img src="Wildlife.jpg" alt="Wildlife">
+                    </div>
+                </div>
+                 <!--Card 3 -->
+                <div class="service-card">
+                    <div class="service-info">
+                        <h3 class="animated-title">Swimming Area</h3>
+                        <p>Swimming areas offer the perfect escape from the summer sun. Cool off in crystal-clear waters, splash around with friends and family, or simply relax and soak up the sun.</p>
+                        <img src="Fun.jpg" alt="Swimming Area">
+                    </div>
+                </div>
+            </div>
+        </center>
 
 
         <!-- FOOTER -->
