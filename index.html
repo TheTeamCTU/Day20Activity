@@ -8,6 +8,73 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <style>
+            /* Juan Section */
+            body{
+			margin: 0px;
+			font-family: Arial;
+		}
+		nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            padding-right: 15px;
+            justify-content: right;
+        }
+        nav a {
+        	color: black;
+        	margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            border-bottom: solid black 2px;
+            transition: ease 0.5s;
+            background-color: white;
+        }
+        nav a:hover{
+        	transform: scale(1.2);
+        	border-bottom: solid white 2px;
+
+        }
+        .NavLogo{
+        	width: 70px;
+        	height: 70px;
+        	padding-right: 70%;
+        }
+        .HeaderNav{
+        	background-color: #6ca96e;
+        	border: solid black 5px;
+        }
+        .Header{
+        	background-image: url(p1BCK.jpg);
+   			background-repeat: no-repeat;
+
+        }
+        .Headingh1{
+        	margin: 0px;
+        	padding-top: 300px;
+        	font-weight: bold;
+        	font-size: 80px;
+        	padding-bottom: 80px;
+        	color: #b0ffa3;
+        }
+        .signup{
+        	border-radius: 50px;
+        	color: black;
+        	width: 200px;
+        	height: 50px;
+        	border: solid black 5px;
+        	transition: ease 0.5s;
+        }
+        .signup:hover{
+        	transform: scale(1.1);
+        	font-weight: bold;
+        	font-size: 20px;
+        }
             /* MATTHEW SECTION */
             .ss-section {
                 display: flex;
@@ -114,7 +181,23 @@
     </head>
     <body>
         <!-- HOME PAGE -->
-         
+        <section class="NavSection">
+            <nav class="HeaderNav">
+                <ul>
+                    <img src="Logo.jpg" class="NavLogo">
+                    <li><a href="">About</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Products</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="Header">
+                <center>
+                    <h1 class="Headingh1">Start Your Adventure Today!</h1>
+                    <button class="signup">Sign up now</button>
+                </center>
+            </div>
+        </section>
 
 
 
