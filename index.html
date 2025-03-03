@@ -9,37 +9,46 @@
 
         <style>
             /* MATTHEW SECTION */
-            .ss-containter{
+            .ss-section {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            .ss-container {
                 position: relative;
-                width: 278px;
+                width: 600px;
                 height: 400px;
                 color: black;
-                border-radius: 10px;
-                background-color: #fee600;
-                margin-top: 20px;
+                margin: 20px 10px 20px 300px;
             }
-        
-            .ss-slide{
+
+            .ss-slide {
                 text-align: center;
                 display: none;
-                padding: 20px;
+                height: 100%;
+                border: 3px solid black;
+                border-radius: 10px;
             }
-        
-            .ss-slide img{
+
+            .ss-slide img {
                 width: 100%;
-            }	
-        
-            .ss-slide.ss-active{
+                height: 100%;
+                border-radius: 5px;
+                object-fit: cover;
+            }
+
+            .ss-slide.ss-active {
                 display: block;
             }
-        
-            .dot-container{
+
+            .dot-container {
                 text-align: center;
                 padding: 20px;
                 width: 65px;
             }
-        
-            .dot{
+
+            .dot {
                 cursor: pointer;
                 height: 15px;
                 width: 15px;
@@ -49,11 +58,28 @@
                 display: inline-block;
                 transition: background-color 0.3s ease;
             }
-        
-            .dot:hover{
-                background-color: #fee600;
+
+            .dot:hover {
+                background-color: green;
             }
-            </style>
+
+            .dot.ss-active {
+                background-color: #000;
+            }
+
+            .ss-extra{
+                border: 2px solid black;
+                border-radius: 10px;
+                padding: 10px;
+                margin-top: 20px;
+                width: 300px;
+                margin: 20px 0 20px 10px;
+            }
+
+            #ss-extra{
+
+            }
+        </style>
 
     </head>
     <body>
@@ -63,10 +89,10 @@
 
 
         <!-- SLIDE SHOW -->
-        <div class="ss-section">
+        <section class="ss-section">
             <center>
                 <div class="ss-container">
-                    <div class="ss-active">
+                    <div class="ss-slide ss-active">
                         <img src="resort1.jpeg">
                     </div> <!-- Slide show active -->
     
@@ -78,18 +104,23 @@
                         <img src="resort3.jpeg">
                     </div> <!-- Slide show slide 3 -->
     
-                </div> <!-- Slide show container -->
-            </center>
-    
-            <center>
                 <div class="dot-container">
                     <div class="dot" onclick="currentSlide(1)"></div>
                     <div class="dot" onclick="currentSlide(2)"></div>
                     <div class="dot" onclick="currentSlide(3)"></div>
                 </div>
+    
+                </div> <!-- Slide show container -->
             </center>
     
-        </div> <!-- Slide show section -->
+            <div class="ss-extra">
+                <b><p id="ss-extra">Best resorts!</p></b>
+                <p id="ss-extra">Here are some of the best resorts we have to offer. <br>
+                We have went through all the resorts offered on our website and picked <br>
+                the top <b>3 BEST</b> one we have to offer.</p>
+            </div>
+    
+        </section> <!-- Slide show section -->
 
 
         <!-- BIG BOX -->
@@ -127,46 +158,48 @@
 
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
-      let slideIndex = 1;
-      showSlides(slideIndex);
+            let slideIndex = 1;
+            showSlides(slideIndex);
     
-      setInterval(function(){
-        plusSlides(1);
-      }, 6000);
+            setInterval(function() {
+                plusSlides(1);
+            }, 6000);
     
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
     
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
     
-      function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("ss-slide");
+                let dots = document.getElementsByClassName("dot");
     
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
+                if (n > slides.length) { slideIndex = 1 }
+                if (n < 1) { slideIndex = slides.length }
     
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-      }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
     
-      const dots = document.getElementsByClassName("dot");
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].addEventListener("click", function() {
-          currentSlide(i + 1);
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" ss-active", "");
+                }
+    
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " ss-active";
+            }
+    
+            const dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener("click", function() {
+                    currentSlide(i + 1);
+                });
+            }
         });
-      }
-    });
     </script>
 
 </html>
